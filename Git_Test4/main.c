@@ -16,13 +16,13 @@ int main(void) {
 	int betting, cap_user = 100;
 	srand(time(NULL));
 
-	printf("포커 게임을 시작합니다.\n\n");
+	printf("?�커 게임???�작?�니??\n\n");
 
 	while (1) {
 
 		while (1) {
-			printf(":::%d회 게임:::\n", games);
-			printf("베팅금액을 입력하세요 (현재 소지금 %d만원, 종료 시 -1 입력) : ", cap_user);
+			printf(":::%d??게임:::\n", games);
+			printf("베팅금액???�력?�세??(?�재 ?��?�?%d만원, 종료 ??-1 ?�력) : ", cap_user);
 			scanf("%d", &betting);
 
 			if (betting == -1)
@@ -31,7 +31,7 @@ int main(void) {
 			cap_user -= betting;
 
 			if (cap_user < 0) {
-				printf("돈이 부족합니다. 다시 입력해주세요.\n");
+				printf("?�이 부족합?�다. ?�시 ?�력?�주?�요.\n");
 				cap_user += betting;
 			}
 			else
@@ -44,8 +44,8 @@ int main(void) {
 		select_usercard(&user_shape1, &user_shape2, &user_num1, &user_num2);
 		select_comcard(&com_shape1, &com_shape2, &com_num1, &com_num2, &user_shape1, &user_shape2, &user_num1, &user_num2);
 
-		printf("사용자 카드 : %c%d %c%d - %s\n", change_shape(user_shape1), user_num1, change_shape(user_shape2), user_num2, cal_rank(user_shape1, user_shape2, user_num1, user_num2, &user_rank_val));
-		printf("컴퓨터 카드 : %c%d %c%d - %s\n", change_shape(com_shape1), com_num1, change_shape(com_shape2), com_num2, cal_rank(com_shape1, com_shape2, com_num1, com_num2, &com_rank_val));
+		printf("?�용??카드 : %c%d %c%d - %s\n", change_shape(user_shape1), user_num1, change_shape(user_shape2), user_num2, cal_rank(user_shape1, user_shape2, user_num1, user_num2, &user_rank_val));
+		printf("컴퓨??카드 : %c%d %c%d - %s\n", change_shape(com_shape1), com_num1, change_shape(com_shape2), com_num2, cal_rank(com_shape1, com_shape2, com_num1, com_num2, &com_rank_val));
 
 		referee(user_num1, user_num2, com_num1, com_num2, user_rank_val, com_rank_val, &win_lose);
 
@@ -54,7 +54,7 @@ int main(void) {
 		else if (win_lose == -1)
 			cap_user += betting;
 		else if (cap_user <= 0) {
-			printf("파산하셨습니다. 게임을 종료합니다.\n");
+			printf("?�산?�셨?�니?? 게임??종료?�니??\n");
 			break;
 		}
 
@@ -62,8 +62,8 @@ int main(void) {
 	};
 
 	printf("\n가감액 : %d만원\n", cap_user - 100);
-	printf("게임 횟수 : %d\n", games);
-	printf("게임을 종료합니다.\n");
+	printf("게임 ?�수 : %d\n", games);
+	printf("게임??종료?�니??\n");
 
 	return 0;
 }
@@ -137,11 +137,11 @@ void referee(int user_num1, int user_num2, int com_num1, int com_num2, int user_
 	int usernum, comnum;
 
 	if (user_rank > com_rank) {
-		printf("사용자가 승리하였습니다.\n\n");
+		printf("?�용?��? ?�리?��??�니??\n\n");
 		*win_lose = 1;
 	}
 	else if (user_rank < com_rank) {
-		printf("컴퓨터가 승리하였습니다.\n\n");
+		printf("컴퓨?��? ?�리?��??�니??\n\n");
 		*win_lose = 0;
 	}
 	else {
@@ -156,15 +156,15 @@ void referee(int user_num1, int user_num2, int com_num1, int com_num2, int user_
 			comnum = com_num2;
 
 		if (usernum > comnum) {
-			printf("사용자가 승리하였습니다.\n\n");
+			printf("?�용?��? ?�리?��??�니??\n\n");
 			*win_lose = 1;
 		}
 		else if (usernum < comnum) {
-			printf("컴퓨터가 승리하였습니다.\n\n");
+			printf("컴퓨?��? ?�리?��??�니??\n\n");
 			*win_lose = 0;
 		}
 		else {
-			printf("무승부입니다.\n\n");
+			printf("무승부?�니??\n\n");
 			*win_lose = -1;
 		}
 	}
