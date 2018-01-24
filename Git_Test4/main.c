@@ -13,9 +13,7 @@ int main(void) {
 	int user_shape1, user_shape2, user_num1, user_num2, user_rank_val;
 	int com_shape1, com_shape2, com_num1, com_num2, com_rank_val;
 	int win_lose, games = 1;
-
-	int betting, cap_user = 100;
-
+	int betting, cap_user = 100, cap_com = 10;
 	srand(time(NULL));
 
 	printf("포커 게임을 시작합니다.\n\n");
