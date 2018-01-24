@@ -16,13 +16,13 @@ int main(void) {
 	int betting, cap_user = 100, cap_com = 10;
 	srand(time(NULL));
 
-	printf("Æ÷Ä¿ °ÔÀÓÀ» ½ÃÀÛÇÕ´Ï´Ù.\n\n");
+	printf("?¬ì»¤ ê²Œì„???œì‘?©ë‹ˆ??\n\n");
 
 	while (1) {
 
 		while (1) {
-			printf(":::%dÈ¸ °ÔÀÓ:::\n", games);
-			printf("º£ÆÃ±İ¾×À» ÀÔ·ÂÇÏ¼¼¿ä (ÇöÀç ¼ÒÁö±İ %d¸¸¿ø, Á¾·á ½Ã -1 ÀÔ·Â) : ", cap_user);
+			printf(":::%d??ê²Œì„:::\n", games);
+			printf("ë² íŒ…ê¸ˆì•¡???…ë ¥?˜ì„¸??(?„ì¬ ?Œì?ê¸?%dë§Œì›, ì¢…ë£Œ ??-1 ?…ë ¥) : ", cap_user);
 			scanf("%d", &betting);
 
 			if (betting == -1)
@@ -31,7 +31,7 @@ int main(void) {
 			cap_user -= betting;
 
 			if (cap_user < 0) {
-				printf("µ·ÀÌ ºÎÁ·ÇÕ´Ï´Ù. ´Ù½Ã ÀÔ·ÂÇØÁÖ¼¼¿ä.\n");
+				printf("?ˆì´ ë¶€ì¡±í•©?ˆë‹¤. ?¤ì‹œ ?…ë ¥?´ì£¼?¸ìš”.\n");
 				cap_user += betting;
 			}
 			else
@@ -44,8 +44,8 @@ int main(void) {
 		select_usercard(&user_shape1, &user_shape2, &user_num1, &user_num2);
 		select_comcard(&com_shape1, &com_shape2, &com_num1, &com_num2, &user_shape1, &user_shape2, &user_num1, &user_num2);
 
-		printf("»ç¿ëÀÚ Ä«µå : %c%d %c%d - %s\n", change_shape(user_shape1), user_num1, change_shape(user_shape2), user_num2, cal_rank(user_shape1, user_shape2, user_num1, user_num2, &user_rank_val));
-		printf("ÄÄÇ»ÅÍ Ä«µå : %c%d %c%d - %s\n", change_shape(com_shape1), com_num1, change_shape(com_shape2), com_num2, cal_rank(com_shape1, com_shape2, com_num1, com_num2, &com_rank_val));
+		printf("?¬ìš©??ì¹´ë“œ : %c%d %c%d - %s\n", change_shape(user_shape1), user_num1, change_shape(user_shape2), user_num2, cal_rank(user_shape1, user_shape2, user_num1, user_num2, &user_rank_val));
+		printf("ì»´í“¨??ì¹´ë“œ : %c%d %c%d - %s\n", change_shape(com_shape1), com_num1, change_shape(com_shape2), com_num2, cal_rank(com_shape1, com_shape2, com_num1, com_num2, &com_rank_val));
 
 		referee(user_num1, user_num2, com_num1, com_num2, user_rank_val, com_rank_val, &win_lose);
 
@@ -54,16 +54,16 @@ int main(void) {
 		else if (win_lose == -1)
 			cap_user += betting;
 		else if (cap_user <= 0) {
-			printf("ÆÄ»êÇÏ¼Ì½À´Ï´Ù. °ÔÀÓÀ» Á¾·áÇÕ´Ï´Ù.\n");
+			printf("?Œì‚°?˜ì…¨?µë‹ˆ?? ê²Œì„??ì¢…ë£Œ?©ë‹ˆ??\n");
 			break;
 		}
 
 		games++;
 	};
 
-	printf("\n°¡°¨¾× : %d¸¸¿ø\n", cap_user - 100);
-	printf("°ÔÀÓ È½¼ö : %d\n", games);
-	printf("°ÔÀÓÀ» Á¾·áÇÕ´Ï´Ù.\n");
+	printf("\nê°€ê°ì•¡ : %dë§Œì›\n", cap_user - 100);
+	printf("ê²Œì„ ?Ÿìˆ˜ : %d\n", games);
+	printf("ê²Œì„??ì¢…ë£Œ?©ë‹ˆ??\n");
 
 	return 0;
 }
@@ -137,11 +137,11 @@ void referee(int user_num1, int user_num2, int com_num1, int com_num2, int user_
 	int usernum, comnum;
 
 	if (user_rank > com_rank) {
-		printf("»ç¿ëÀÚ°¡ ½Â¸®ÇÏ¿´½À´Ï´Ù.\n\n");
+		printf("?¬ìš©?ê? ?¹ë¦¬?˜ì??µë‹ˆ??\n\n");
 		*win_lose = 1;
 	}
 	else if (user_rank < com_rank) {
-		printf("ÄÄÇ»ÅÍ°¡ ½Â¸®ÇÏ¿´½À´Ï´Ù.\n\n");
+		printf("ì»´í“¨?°ê? ?¹ë¦¬?˜ì??µë‹ˆ??\n\n");
 		*win_lose = 0;
 	}
 	else {
@@ -156,15 +156,15 @@ void referee(int user_num1, int user_num2, int com_num1, int com_num2, int user_
 			comnum = com_num2;
 
 		if (usernum > comnum) {
-			printf("»ç¿ëÀÚ°¡ ½Â¸®ÇÏ¿´½À´Ï´Ù.\n\n");
+			printf("?¬ìš©?ê? ?¹ë¦¬?˜ì??µë‹ˆ??\n\n");
 			*win_lose = 1;
 		}
 		else if (usernum < comnum) {
-			printf("ÄÄÇ»ÅÍ°¡ ½Â¸®ÇÏ¿´½À´Ï´Ù.\n\n");
+			printf("ì»´í“¨?°ê? ?¹ë¦¬?˜ì??µë‹ˆ??\n\n");
 			*win_lose = 0;
 		}
 		else {
-			printf("¹«½ÂºÎÀÔ´Ï´Ù.\n\n");
+			printf("ë¬´ìŠ¹ë¶€?…ë‹ˆ??\n\n");
 			*win_lose = -1;
 		}
 	}
